@@ -5,13 +5,21 @@
 #' @return Opens the file
 #' @export
 open_file <- function(filename) {
-  file <- system.file("files", filename, package = "jwdatasets")
-  if (identical(file, "")) {
-    warning("File not found. Possible files:", call. = FALSE, immediate. = TRUE)
-    cat(dir(system.file("files", package = "jwdatasets")), sep = "\n")
-    invisible()
+
+  if(missing(filename)) {
+      cat(dir(system.file("files", package = "jwdatasets")), sep = "\n")
+      invisible()
+  } else {
+    file <- system.file("files", filename, package = "jwdatasets")
+    if (identical(file, "")) {
+      warning("File not found. Possible files:", call. = FALSE, immediate. = TRUE)
+      cat(dir(system.file("files", package = "jwdatasets")), sep = "\n")
+      invisible()
+    }
+    #rstudioapi::navigateToFile("test.R")
+    #usethis::edit_file("test.R")
+    file.edit(file)
   }
-  #rstudioapi::navigateToFile("test.R")
-  #usethis::edit_file("test.R")
-  file.edit(file)
+
+
 }

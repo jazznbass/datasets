@@ -1,5 +1,21 @@
-# jwdatasets
+# datmat
 
-Datasets and materials for my educational courses
+This package contains datasets and materials for my teaching courses.  
 
-`devtools::install_github("jazznbass/jwdatasets")`
+I recommend to use the RStudio environment.
+
+## Installing `datmat`
+
+1. Install R and RStudio  
+2a. If you are running Windows OS you have to install Rtools: https://cran.r-project.org/bin/windows/Rtools/  
+2b. Choose the Rtools version that fits to the R version you installed. (keep in mind that when you update R you may have to update Rtools).  
+3. Install the `devtools` package in Rstudio: `install.packages("devtools")`.  
+4. Install `datmat` with `devtools::install_github("jazznbass/datmat")`  
+
+`library(datmat)` loads the namespace into you R session (that is, makes the datasets and files available).
+
+Use `data(package = "datmat")` to get an overview of all available datasets.
+
+Use `open_file()`
+
+

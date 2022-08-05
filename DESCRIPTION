@@ -1,6 +1,6 @@
 Type: Package
-Package: jwdatasets
-Title: Juergen Wilbert's datasets and materials for teaching courses
+Package: datmat
+Title: Juergen's datasets and materials for teaching courses
 Version: 0.0.0.9000
 Date: 2022-07-01
 Authors@R:
