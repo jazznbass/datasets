@@ -7,8 +7,7 @@ I recommend to use the RStudio environment.
 ## Installing `datmat`
 
 1. Install R and RStudio  
-2a. If you are running Windows OS you have to install Rtools: https://cran.r-project.org/bin/windows/Rtools/  
-2b. Choose the Rtools version that fits to the R version you installed. (keep in mind that when you update R you may have to update Rtools).  
+2. If you are running Windows OS you have to install Rtools: https://cran.r-project.org/bin/windows/Rtools/. Choose the Rtools version that fits to the R version you installed. (keep in mind that you may have to update Rtools when you update R).  
 3. Install the `devtools` package in Rstudio: `install.packages("devtools")`.  
 4. Install `datmat` with `devtools::install_github("jazznbass/datmat")`  
 
