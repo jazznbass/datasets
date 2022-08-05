@@ -15,6 +15,10 @@ I recommend to use the RStudio environment.
 
 Use `data(package = "datmat")` to get an overview of all available datasets.
 
-Use `open_file()`
+Use `open_file()` to get see which files are available.
+
+`open_file(filename)` will open a file.
+
+
 
 

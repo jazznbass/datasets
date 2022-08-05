@@ -7,13 +7,13 @@
 open_file <- function(filename) {
 
   if(missing(filename)) {
-      cat(dir(system.file("files", package = "jwdatasets")), sep = "\n")
+      cat(dir(system.file("files", package = "datmat")), sep = "\n")
       invisible()
   } else {
-    file <- system.file("files", filename, package = "jwdatasets")
+    file <- system.file("files", filename, package = "datmat")
     if (identical(file, "")) {
       warning("File not found. Possible files:", call. = FALSE, immediate. = TRUE)
-      cat(dir(system.file("files", package = "jwdatasets")), sep = "\n")
+      cat(dir(system.file("files", package = "datmat")), sep = "\n")
       invisible()
     }
     #rstudioapi::navigateToFile("test.R")
