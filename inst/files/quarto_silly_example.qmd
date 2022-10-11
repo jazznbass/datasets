@@ -1,0 +1,92 @@
+---
+title: "The Quarto (silly) example"
+author: "Jürgen Wilbert"
+date: "11. October 2022"
+table-of-contents: true
+---
+
+# header one
+
+## header two
+
+### header three
+
+This is *italic* this is **bold**, and ***this is both!***.
+
+An unordered list:
+
+-   Helmut
+-   Gerhard
+-   Angela
+
+An ordered list:
+
+1.  Bush
+2.  Obama
+3.  Trump
+
+Combined:
+
+1.  Sour
+    -   Lime
+    -   Envy
+2.  Sweet
+    -   Honey
+    -   Love
+
+# Example
+
+Now follow some examples. We start with some analyses on Star Wars characters.
+
+The package `dplyr` has a database included.
+
+## Starwars
+
+```{r}
+#| include: false
+library(dplyr) # needed for the starwars database
+library(knitr) # needed for the kable() function
+```
+
+The Starwars data-set contains the following variables: `r names(starwars)`.
+
+### Question 1: Do different species have different heights?
+
+```{r}
+#| echo: false
+#| fig-cap: "Height distribution of Star Wars species"
+#| label: fig-height
+
+dat <- starwars[starwars$species %in% c("Droid", "Human", "Wookiee"),]
+boxplot(dat$height ~ dat$species)
+```
+
+Yes, as we can see from @fig-height, not all species have the same height distribution.
+
+### Question 2: Is there a gender bias in Star Wars?
+
+```{r}
+#| label: tbl-gender
+#| tbl-cap: Gender distribution of Star Wars characters
+tab <- table(starwars$gender)
+kable(tab)
+```
+
+Take a look at @tbl-gender. There is a clear bias towards male characters.
+
+### Question 3: From which homeworlds do the characters come from?
+
+@tbl-homeworld shows which species are located at which homeworld.
+
+```{r}
+#| label: tbl-homeworld
+#| tbl-cap: Homeworlds by species
+#| code-fold: true
+filter <- names(which(table(starwars$species) > 2))
+dat <- starwars[starwars$species %in% filter,]
+tab <- table(dat$homeworld, dat$species)
+tab <- rbind(tab, total = margin.table(tab, 2))
+tab <- cbind(tab, total = margin.table(tab, 1))
+
+kable(tab)
+```
