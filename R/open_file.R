@@ -7,7 +7,7 @@
 open_file <- function(filename) {
 
   if(missing(filename)) {
-      cat(dir(system.file("files", package = "datmat")), sep = "\n")
+      message("The following files are available:\n", paste(dir(system.file("files", package = "datmat")), collapse = "\n"))
       invisible()
   } else {
     file <- system.file("files", filename, package = "datmat")
